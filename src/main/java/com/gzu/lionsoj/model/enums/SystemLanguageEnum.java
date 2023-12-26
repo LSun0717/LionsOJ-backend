@@ -1,23 +1,26 @@
 package com.gzu.lionsoj.model.enums;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.apache.commons.lang3.ObjectUtils;
 
 /**
- * 文件上传业务类型枚举
+ * 系统支持编程语言枚举
  *
  */
-public enum FileUploadBizEnum {
+public enum SystemLanguageEnum {
 
-    USER_AVATAR("用户头像", "user_avatar");
+    JAVA("Java", "Java"),
+    CPP("CPP", "CPP"),
+    GOLANG("Golang", "Golang");
 
     private final String text;
 
     private final String value;
 
-    FileUploadBizEnum(String text, String value) {
+    SystemLanguageEnum(String text, String value) {
         this.text = text;
         this.value = value;
     }
@@ -37,11 +40,11 @@ public enum FileUploadBizEnum {
      * @param value
      * @return
      */
-    public static FileUploadBizEnum getEnumByValue(String value) {
+    public static SystemLanguageEnum getEnumByValue(String value) {
         if (ObjectUtils.isEmpty(value)) {
             return null;
         }
-        for (FileUploadBizEnum anEnum : FileUploadBizEnum.values()) {
+        for (SystemLanguageEnum anEnum : SystemLanguageEnum.values()) {
             if (anEnum.value.equals(value)) {
                 return anEnum;
             }

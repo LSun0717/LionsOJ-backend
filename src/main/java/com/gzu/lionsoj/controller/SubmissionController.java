@@ -1,54 +1,54 @@
 package com.gzu.lionsoj.controller;
 
-import com.gzu.lionsoj.exception.BusinessException;
-import com.gzu.lionsoj.model.dto.postthumb.PostThumbAddRequest;
 import com.gzu.lionsoj.common.BaseResponse;
 import com.gzu.lionsoj.common.ErrorCode;
 import com.gzu.lionsoj.common.ResultUtils;
+import com.gzu.lionsoj.exception.BusinessException;
+import com.gzu.lionsoj.model.dto.submission.SubmissionAddRequest;
 import com.gzu.lionsoj.model.entity.User;
-import com.gzu.lionsoj.service.PostThumbService;
+import com.gzu.lionsoj.service.SubmissionService;
 import com.gzu.lionsoj.service.UserService;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 /**
- * 帖子点赞接口
+ * 答题信息提交接口
  *
  */
 @RestController
-@RequestMapping("/post_thumb")
+@RequestMapping("/submission")
 @Slf4j
-public class PostThumbController {
+public class SubmissionController {
 
     @Resource
-    private PostThumbService postThumbService;
+    private SubmissionService submissionService;
 
     @Resource
     private UserService userService;
 
     /**
-     * 点赞 / 取消点赞
+     * 提交答题信息
      *
-     * @param postThumbAddRequest
+     * @param submissionAddRequest
      * @param request
-     * @return resultNum 本次点赞变化数
+     * @return submissionId 本次答题提交的id
      */
     @PostMapping("/")
-    public BaseResponse<Integer> doThumb(@RequestBody PostThumbAddRequest postThumbAddRequest,
+    public BaseResponse<Long> doSubmit(@RequestBody SubmissionAddRequest submissionAddRequest,
             HttpServletRequest request) {
-        if (postThumbAddRequest == null || postThumbAddRequest.getPostId() <= 0) {
+        if (submissionAddRequest == null || submissionAddRequest.getQuestionId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
-        // 登录才能点赞
+        // 登录才能提交
         final User loginUser = userService.getLoginUser(request);
-        long postId = postThumbAddRequest.getPostId();
-        int result = postThumbService.doPostThumb(postId, loginUser);
-        return ResultUtils.success(result);
+        Long submissionId = submissionService.doSubmit(submissionAddRequest, loginUser);
+        return ResultUtils.success(submissionId);
     }
 
 }
