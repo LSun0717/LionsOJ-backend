@@ -1,8 +1,6 @@
 # Lions OJ
 
-Lions OJ是一个Java生态开发的在线判题（Online Judge）系统，持续开发中。
-
-## 模板特点
+Lions OJ是一个Java生态开发的在线判题（Online Judge）系统，本项目为其后端工程，持续开发中。
 
 ### 主流框架 & 特性
 
