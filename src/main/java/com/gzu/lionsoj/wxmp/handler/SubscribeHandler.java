@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 /**
  * 关注处理器
  *
-
  **/
 @Component
 public class SubscribeHandler implements WxMpMessageHandler {

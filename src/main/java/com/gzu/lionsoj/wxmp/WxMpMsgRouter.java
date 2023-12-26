@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 微信公众号路由
  *
-
  */
 @Configuration
 public class WxMpMsgRouter {

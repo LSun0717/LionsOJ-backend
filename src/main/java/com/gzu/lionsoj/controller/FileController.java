@@ -39,6 +39,10 @@ public class FileController {
     private CosManager cosManager;
 
     /**
+     *
+     *
+     *
+     *
      * 文件上传
      *
      * @param multipartFile
