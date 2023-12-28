@@ -4,7 +4,10 @@ import com.gzu.lionsoj.constant.CommonConstant;
 import lombok.Data;
 
 /**
- * 分页请求
+ * @Classname: PageRequest
+ * @Description: 分页请求封装
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:13 AM
  */
 @Data
 public class PageRequest {

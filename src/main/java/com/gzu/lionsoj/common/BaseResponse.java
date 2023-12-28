@@ -4,8 +4,10 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 通用返回结果
- * @param <T>
+ * @Classname: BaseResponse
+ * @Description: 通用响应
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:12 AM
  */
 @Data
 public class BaseResponse<T> implements Serializable {

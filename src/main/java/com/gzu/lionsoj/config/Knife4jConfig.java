@@ -11,15 +11,16 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * Knife4j 接口文档配置
- * https://doc.xiaominfo.com/knife4j/documentation/get_start.html
- *
+ * @Classname: Knife4jConfig
+ * @Description:  * Knife4j 接口文档配置
+ * <a href="https://doc.xiaominfo.com/knife4j/documentation/get_start.html">...</a>
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:22 AM
  */
 @Configuration
 @EnableSwagger2
 @Profile({"dev", "test"})
 public class Knife4jConfig {
-
     @Bean
     public Docket defaultApi2() {
         return new Docket(DocumentationType.SWAGGER_2)

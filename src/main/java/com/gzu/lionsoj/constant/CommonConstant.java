@@ -1,8 +1,10 @@
 package com.gzu.lionsoj.constant;
 
 /**
- * 通用常量
- *
+ * @Classname: CommonConstant
+ * @Description: 通用常量
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:25 AM
  */
 public interface CommonConstant {
 

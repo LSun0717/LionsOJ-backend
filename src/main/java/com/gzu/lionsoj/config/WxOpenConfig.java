@@ -9,8 +9,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 微信开放平台配置
- *
+ * @Classname: WxOpenConfig
+ * @Description: 微信开放平台配置
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:24 AM
  */
 @Slf4j
 @Configuration
@@ -26,8 +28,6 @@ public class WxOpenConfig {
 
     /**
      * 单例模式（不用 @Bean 是为了防止和公众号的 service 冲突）
-     *
-     * @return
      */
     public WxMpService getWxMpService() {
         if (wxMpService != null) {

@@ -3,17 +3,19 @@ package com.gzu.lionsoj.utils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * SQL 工具
- *
-
+ * @Classname: SqlUtils
+ * @Description: SQL工具类
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:33 AM
  */
 public class SqlUtils {
 
     /**
-     * 校验排序字段是否合法（防止 SQL 注入）
-     *
-     * @param sortField
-     * @return
+     * @Description: 校验排序字段是否合法（防止 SQL 注入）
+     * @param sortField 排序字段
+     * @Return: 是否合法
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:33 AM
      */
     public static boolean validSortField(String sortField) {
         if (StringUtils.isBlank(sortField)) {

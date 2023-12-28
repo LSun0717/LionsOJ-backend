@@ -3,7 +3,10 @@ package com.gzu.lionsoj.model.dto.submission;
 import lombok.Data;
 
 /**
- * 评测结果信息
+ * @Classname: JudgeInfo
+ * @Description: 评测结果信息
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:51 PM
  */
 @Data
 public class JudgeInfo {

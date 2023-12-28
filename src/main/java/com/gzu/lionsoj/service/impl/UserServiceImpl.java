@@ -27,9 +27,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 /**
- * 用户服务实现
- *
-
+ * @Classname: UserServiceImpl
+ * @Description: 用户服务实现
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:37 PM
  */
 @Service
 @Slf4j
@@ -40,6 +41,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      */
     private static final String SALT = "gzu";
 
+    /**
+     * @Description: 用户注册
+     * @param userAccount   用户账户
+     * @param userPassword  用户密码
+     * @param checkPassword 校验密码
+     * @Return: 新用户 id
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:26 PM
+     */
     @Override
     public long userRegister(String userAccount, String userPassword, String checkPassword) {
         // 1. 校验
@@ -78,6 +88,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
     }
 
+    /**
+     * @Description: 用户登录
+     * @param userAccount   用户账户
+     * @param userPassword  用户密码
+     * @param request http请求
+     * @Return: 脱敏后的用户信息
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:27 PM
+     */
     @Override
     public LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request) {
         // 1. 校验
@@ -107,6 +126,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return this.getLoginUserVO(user);
     }
 
+    /**
+     * @Description: 用户登录（微信开放平台）
+     * @param wxOAuth2UserInfo 从微信获取的用户信息
+     * @param request http请求
+     * @Return: 登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:29 PM
+     */
     @Override
     public LoginUserVO userLoginByMpOpen(WxOAuth2UserInfo wxOAuth2UserInfo, HttpServletRequest request) {
         String unionId = wxOAuth2UserInfo.getUnionId();
@@ -140,10 +167,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     /**
-     * 获取当前登录用户
-     *
-     * @param request
-     * @return
+     * @Description: 获取当前登录用户
+     * @param request http请求
+     * @Return: 当前登录用户
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:30 PM
      */
     @Override
     public User getLoginUser(HttpServletRequest request) {
@@ -163,10 +191,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     /**
-     * 获取当前登录用户（允许未登录）
-     *
-     * @param request
-     * @return
+     * @Description: 获取当前登录用户（允许未登录）
+     * @param request http请求
+     * @Return: 当前登录用户
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:31 PM
      */
     @Override
     public User getLoginUserPermitNull(HttpServletRequest request) {
@@ -182,10 +211,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     /**
-     * 是否为管理员
-     *
-     * @param request
-     * @return
+     * @Description: 是否为管理员
+     * @param request http请求
+     * @Return: 判断结果
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:31 PM
      */
     @Override
     public boolean isAdmin(HttpServletRequest request) {
@@ -195,15 +225,24 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return isAdmin(user);
     }
 
+    /**
+     * @Description: 是否为管理员
+     * @param user 用户pojo
+     * @Return: 判断结果
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:31 PM
+     */
     @Override
     public boolean isAdmin(User user) {
         return user != null && UserRoleEnum.ADMIN.getValue().equals(user.getUserRole());
     }
 
     /**
-     * 用户注销
-     *
-     * @param request
+     * @Description: 用户注销
+     * @param request http请求
+     * @Return: 是否注销成功
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:32 PM
      */
     @Override
     public boolean userLogout(HttpServletRequest request) {
@@ -215,6 +254,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return true;
     }
 
+    /**
+     * @Description: 获取脱敏的已登录用户信息
+     * @param user 用户对象
+     * @Return: 已登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:33 PM
+     */
     @Override
     public LoginUserVO getLoginUserVO(User user) {
         if (user == null) {
@@ -225,6 +271,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return loginUserVO;
     }
 
+    /**
+     * @Description: 获取脱敏的用户信息
+     * @param user 用户对象
+     * @Return: 用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:33 PM
+     */
     @Override
     public UserVO getUserVO(User user) {
         if (user == null) {
@@ -235,6 +288,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userVO;
     }
 
+    /**
+     * @Description: 批量获取脱敏的用户信息
+     * @param userList 用户列表
+     * @Return: 用户视图对象List
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:34 PM
+     */
     @Override
     public List<UserVO> getUserVO(List<User> userList) {
         if (CollectionUtils.isEmpty(userList)) {
@@ -243,6 +303,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return userList.stream().map(this::getUserVO).collect(Collectors.toList());
     }
 
+    /**
+     * @Description: 获取查询条件 QueryRequest
+     * @param userQueryRequest 请求封装
+     * @Return: 查询条件
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:35 PM
+     */
     @Override
     public QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest) {
         if (userQueryRequest == null) {
@@ -256,6 +323,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         String userRole = userQueryRequest.getUserRole();
         String sortField = userQueryRequest.getSortField();
         String sortOrder = userQueryRequest.getSortOrder();
+        // 封装查询条件
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq(id != null, "id", id);
         queryWrapper.eq(StringUtils.isNotBlank(unionId), "unionId", unionId);

@@ -5,9 +5,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * Cos 操作测试
- *
-
+ * @Classname: CosManagerTest
+ * @Description: Cos 操作测试
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:37 AM
  */
 @SpringBootTest
 class CosManagerTest {

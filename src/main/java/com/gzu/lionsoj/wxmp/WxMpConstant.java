@@ -1,9 +1,11 @@
 package com.gzu.lionsoj.wxmp;
 
 /**
- * 微信公众号相关常量
- *
- **/
+ * @Classname: WxMpConstant
+ * @Description: 微信公众号相关常量
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:34 AM
+ */
 public class WxMpConstant {
 
     /**

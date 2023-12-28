@@ -8,14 +8,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 /**
- * Spring MVC Json 配置
- *
+ * @Classname: JsonConfig
+ * @Description: Spring MVC Json 配置
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:20 AM
  */
 @JsonComponent
 public class JsonConfig {
 
     /**
-     * 添加 Long 转 json 精度丢失的配置
+     * @Description: 添加 Long 转 json 精度丢失的配置
+     * @param builder json转换构造器
+     * @Return: 对象映射器
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:21 AM
      */
     @Bean
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {

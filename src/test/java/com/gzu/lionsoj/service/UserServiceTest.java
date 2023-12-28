@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * 用户服务测试
- *
-
+ * @Classname: UserServiceTest
+ * @Description: 用户服务相关测试
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:37 AM
  */
 @SpringBootTest
 public class UserServiceTest {

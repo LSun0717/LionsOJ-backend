@@ -8,8 +8,10 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 编辑请求
- *
+ * @Classname: QuestionEditRequest
+ * @Description: 编辑请求封装
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:54 PM
  */
 @Data
 public class QuestionEditRequest implements Serializable {

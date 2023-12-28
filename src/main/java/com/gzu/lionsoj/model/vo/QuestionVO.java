@@ -12,8 +12,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 题目封装VO
- * @TableName question
+ * @Classname: QuestionVO
+ * @Description: 题目视图对象
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:19 PM
  */
 @Data
 public class QuestionVO implements Serializable {
@@ -93,10 +95,11 @@ public class QuestionVO implements Serializable {
     private UserVO userVO;
 
     /**
-     * 包装类转对象
-     *
-     * @param questionVO
-     * @return
+     * @Description: VO to POJO
+     * @param questionVO 题目VO
+     * @Return: 题目POJO
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:17 PM
      */
     public static Question voToObj(QuestionVO questionVO) {
         if (questionVO == null) {
@@ -117,10 +120,11 @@ public class QuestionVO implements Serializable {
     }
 
     /**
-     * 对象转包装类
-     *
-     * @param question
-     * @return
+     * @Description: POJO to VO
+     * @param question 题目POJO
+     * @Return: 题目VO
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:18 PM
      */
     public static QuestionVO objToVo(Question question) {
         if (question == null) {

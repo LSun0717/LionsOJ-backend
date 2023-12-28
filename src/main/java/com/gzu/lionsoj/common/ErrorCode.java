@@ -1,7 +1,10 @@
 package com.gzu.lionsoj.common;
 
 /**
- * 自定义错误码
+ * @Classname: ErrorCode
+ * @Description: 自定义错误码枚举
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:13 AM
  */
 public enum ErrorCode {
 

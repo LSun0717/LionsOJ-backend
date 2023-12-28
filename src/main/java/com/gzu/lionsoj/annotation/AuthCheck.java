@@ -6,16 +6,20 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 权限校验注解
+ * @Classname: AuthCheck
+ * @Description: 自定义权限校验注解
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:11 AM
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AuthCheck {
 
     /**
-     * 必须有某个角色
-     *
-     * @return
+     * @Description: 判断必须拥有某个权限
+     * @Return: 权限
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:11 AM
      */
     String mustRole() default "";
 

@@ -16,9 +16,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
 /**
- * 帖子 ES 操作测试
- *
-
+ * @Classname: PostEsDaoTest
+ * @Description: 帖子 ES 操作测试
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:36 AM
  */
 @SpringBootTest
 public class PostEsDaoTest {

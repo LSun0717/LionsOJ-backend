@@ -4,9 +4,10 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 用户登录请求
- *
-
+ * @Classname: UserLoginRequest
+ * @Description: 用户登录请求封装
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:49 PM
  */
 @Data
 public class UserLoginRequest implements Serializable {

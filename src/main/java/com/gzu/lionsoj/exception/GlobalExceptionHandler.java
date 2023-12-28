@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * 全局异常处理器
- *
-
+ * @Classname: GlobalExceptionHandler
+ * @Description: 全局异常处理器
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:42 PM
  */
 @RestControllerAdvice
 @Slf4j

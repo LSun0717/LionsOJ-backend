@@ -11,8 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 腾讯云对象存储客户端
- *
+ * @Classname: CosClientConfig
+ * @Description: 腾讯云对象存储客户端
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:19 AM
  */
 @Configuration
 @ConfigurationProperties(prefix = "cos.client")

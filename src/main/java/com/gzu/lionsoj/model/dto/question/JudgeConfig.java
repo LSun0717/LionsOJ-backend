@@ -3,7 +3,10 @@ package com.gzu.lionsoj.model.dto.question;
 import lombok.Data;
 
 /**
- * 题目配置
+ * @Classname: JudgeConfig
+ * @Description: 题目配置
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:53 PM
  */
 @Data
 public class JudgeConfig {

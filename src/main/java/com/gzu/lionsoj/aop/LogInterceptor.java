@@ -14,7 +14,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
- * 请求响应日志AOP
+ * @Classname: LogInterceptor
+ * @Description: 请求响应日志AOP切面
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:07 AM
  */
 @Aspect
 @Component
@@ -22,7 +25,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class LogInterceptor {
 
     /**
-     * 执行拦截
+     * @Description: 请求响应日志通知
+     * @param point 连接点
+     * @Return: 切面处理结果
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:07 AM
      */
     @Around("execution(* com.gzu.lionsoj.controller.*.*(..))")
     public Object doInterceptor(ProceedingJoinPoint point) throws Throwable {

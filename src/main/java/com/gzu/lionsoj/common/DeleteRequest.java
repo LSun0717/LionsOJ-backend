@@ -4,7 +4,10 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 删除请求
+ * @Classname: DeleteRequest
+ * @Description: 通用删除请求封装
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:13 AM
  */
 @Data
 public class DeleteRequest implements Serializable {

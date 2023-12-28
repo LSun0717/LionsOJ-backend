@@ -1,8 +1,10 @@
 package com.gzu.lionsoj.constant;
 
 /**
- * 用户常量
- *
+ * @Classname: UserConstant
+ * @Description: 用户相关常量
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:26 AM
  */
 public interface UserConstant {
 
@@ -10,8 +12,6 @@ public interface UserConstant {
      * 用户登录态键
      */
     String USER_LOGIN_STATE = "user_login";
-
-    //  region 权限
 
     /**
      * 默认角色
@@ -27,6 +27,4 @@ public interface UserConstant {
      * 被封号
      */
     String BAN_ROLE = "ban";
-
-    // endregion
 }

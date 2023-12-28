@@ -3,9 +3,10 @@ package com.gzu.lionsoj.exception;
 import com.gzu.lionsoj.common.ErrorCode;
 
 /**
- * 自定义异常类
- *
-
+ * @Classname: BusinessException
+ * @Description: 自定义异常
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:42 PM
  */
 public class BusinessException extends RuntimeException {
 

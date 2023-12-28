@@ -6,8 +6,10 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 创建请求
- *
+ * @Classname: QuestionAddRequest
+ * @Description: 创建请求封装
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:54 PM
  */
 @Data
 public class QuestionAddRequest implements Serializable {

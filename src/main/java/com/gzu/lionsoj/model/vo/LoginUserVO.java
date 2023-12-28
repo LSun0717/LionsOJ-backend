@@ -5,10 +5,11 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 已登录用户视图（脱敏）
- *
-
- **/
+ * @Classname: LoginUserVO
+ * @Description: 已登录用户视图（脱敏）
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:02 PM
+ */
 @Data
 public class LoginUserVO implements Serializable {
 

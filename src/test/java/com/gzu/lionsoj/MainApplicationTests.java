@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * 主类测试
- *
-
+ * @Classname: MainApplicationTests
+ * @Description: 主测试类
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:38 AM
  */
 @SpringBootTest
 class MainApplicationTests {

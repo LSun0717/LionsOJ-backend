@@ -9,16 +9,18 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 题目提交表
- * @TableName submission
+ * @Classname: Submission
+ * @Description: 题目提交实体
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:46 PM
  */
 @TableName(value ="submission")
 @Data
 public class Submission implements Serializable {
     /**
-     * id
+     * id，雪花算法生成
      */
-    @TableId(type = IdType.AUTO)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     /**

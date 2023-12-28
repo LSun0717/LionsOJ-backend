@@ -38,8 +38,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 用户接口
- *
+ * @Classname: UserController
+ * @Description: 用户api
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:45 PM
  */
 @RestController
 @RequestMapping("/user")
@@ -52,13 +54,12 @@ public class UserController {
     @Resource
     private WxOpenConfig wxOpenConfig;
 
-    // region 登录相关
-
     /**
-     * 用户注册
-     *
-     * @param userRegisterRequest
-     * @return
+     * @Description: 用户注册api
+     * @param userRegisterRequest 用户注册请求封装
+     * @Return: 新注册用户id
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:46 PM
      */
     @PostMapping("/register")
     public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
@@ -76,11 +77,12 @@ public class UserController {
     }
 
     /**
-     * 用户登录
-     *
-     * @param userLoginRequest
-     * @param request
-     * @return
+     * @Description: 用户登录api
+     * @param userLoginRequest 用户登录请求封装
+     * @param request http请求
+     * @Return: 登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:47 PM
      */
     @PostMapping("/login")
     public BaseResponse<LoginUserVO> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
@@ -97,11 +99,18 @@ public class UserController {
     }
 
     /**
-     * 用户登录（微信开放平台）
+     * @Description: 用户登录api（微信开放平台）
+     * @param request http请求
+     * @param response http响应
+     * @param code 验证码
+     * @Return: 登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:48 PM
      */
     @GetMapping("/login/wx_open")
-    public BaseResponse<LoginUserVO> userLoginByWxOpen(HttpServletRequest request, HttpServletResponse response,
-            @RequestParam("code") String code) {
+    public BaseResponse<LoginUserVO> userLoginByWxOpen(HttpServletRequest request,
+                                                       HttpServletResponse response,
+                                                       @RequestParam("code") String code) {
         WxOAuth2AccessToken accessToken;
         try {
             WxMpService wxService = wxOpenConfig.getWxMpService();
@@ -120,10 +129,11 @@ public class UserController {
     }
 
     /**
-     * 用户注销
-     *
-     * @param request
-     * @return
+     * @Description: 用户注销api
+     * @param request http请求
+     * @Return: 是否注销成功
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:49 PM
      */
     @PostMapping("/logout")
     public BaseResponse<Boolean> userLogout(HttpServletRequest request) {
@@ -135,10 +145,11 @@ public class UserController {
     }
 
     /**
-     * 获取当前登录用户
-     *
-     * @param request
-     * @return
+     * @Description: 获取当前登录用户api
+     * @param request http请求
+     * @Return: 当前登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:50 PM
      */
     @GetMapping("/get/login")
     public BaseResponse<LoginUserVO> getLoginUser(HttpServletRequest request) {
@@ -146,16 +157,13 @@ public class UserController {
         return ResultUtils.success(userService.getLoginUserVO(user));
     }
 
-    // endregion
-
-    // region 增删改查
-
     /**
-     * 创建用户
-     *
-     * @param userAddRequest
-     * @param request
-     * @return
+     * @Description: 创建用户api
+     * @param userAddRequest 用户新增请求封装
+     * @param request http请求
+     * @Return: 新增用户id
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:51 PM
      */
     @PostMapping("/add")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
@@ -171,11 +179,12 @@ public class UserController {
     }
 
     /**
-     * 删除用户
-     *
-     * @param deleteRequest
-     * @param request
-     * @return
+     * @Description: 删除用户api
+     * @param deleteRequest 删除用户请求封装
+     * @param request http请求
+     * @Return: 是否删除成功
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:52 PM
      */
     @PostMapping("/delete")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
@@ -188,11 +197,12 @@ public class UserController {
     }
 
     /**
-     * 更新用户
-     *
-     * @param userUpdateRequest
-     * @param request
-     * @return
+     * @Description: 更新用户信息api
+     * @param userUpdateRequest 更新用户信息请求封装
+     * @param request http请求
+     * @Return: 是否更新成功
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:53 PM
      */
     @PostMapping("/update")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
@@ -209,11 +219,12 @@ public class UserController {
     }
 
     /**
-     * 根据 id 获取用户（仅管理员）
-     *
-     * @param id
-     * @param request
-     * @return
+     * @Description: 根据 id 获取用户api（仅管理员）
+     * @param id 用户id
+     * @param request http请求
+     * @Return: 用户全量信息
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:54 PM
      */
     @GetMapping("/get")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
@@ -227,11 +238,12 @@ public class UserController {
     }
 
     /**
-     * 根据 id 获取包装类
-     *
-     * @param id
-     * @param request
-     * @return
+     * @Description: 根据 id 获取用户视图对象
+     * @param id 用户id
+     * @param request http请求
+     * @Return: 用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:55 PM
      */
     @GetMapping("/get/vo")
     public BaseResponse<UserVO> getUserVOById(long id, HttpServletRequest request) {
@@ -241,11 +253,12 @@ public class UserController {
     }
 
     /**
-     * 分页获取用户列表（仅管理员）
-     *
-     * @param userQueryRequest
-     * @param request
-     * @return
+     * @Description: 分页获取用户全量信息列表（仅管理员）
+     * @param userQueryRequest 用户查询请求封装
+     * @param request http请求封装
+     * @Return: 用户全量信息分页
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:55 PM
      */
     @PostMapping("/list/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
@@ -259,11 +272,12 @@ public class UserController {
     }
 
     /**
-     * 分页获取用户封装列表
-     *
-     * @param userQueryRequest
-     * @param request
-     * @return
+     * @Description: 分页获取用户视图对象
+     * @param userQueryRequest 用户查询请求封装
+     * @param request http请求
+     * @Return: 用户视图对象分页
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:56 PM
      */
     @PostMapping("/list/page/vo")
     public BaseResponse<Page<UserVO>> listUserVOByPage(@RequestBody UserQueryRequest userQueryRequest,
@@ -283,14 +297,13 @@ public class UserController {
         return ResultUtils.success(userVOPage);
     }
 
-    // endregion
-
     /**
-     * 更新个人信息
-     *
-     * @param userUpdateMyRequest
-     * @param request
-     * @return
+     * @Description: 更新用户信息
+     * @param userUpdateMyRequest 用户更新请求封装
+     * @param request http请求封装
+     * @Return: 是否更新成功
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:57 PM
      */
     @PostMapping("/update/my")
     public BaseResponse<Boolean> updateMyUser(@RequestBody UserUpdateMyRequest userUpdateMyRequest,

@@ -41,9 +41,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
     private UserService userService;
 
     /**
-     * 校验题目是否合法
-     * @param question
-     * @param add
+     * @Description: 校验题目信息
+     * @param question 题目pojo
+     * @param add 区分新增校验还是更新校验
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:15 PM
      */
     @Override
     public void validQuestion(Question question, boolean add) {
@@ -81,10 +83,11 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
     }
 
     /**
-     * 获取查询包装类
-     *
-     * @param questionQueryRequest
-     * @return
+     * @Description: 获取查询条件
+     * @param questionQueryRequest 题目查询请求封装
+     * @Return: DB查询条件
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:17 PM
      */
     @Override
     public QueryWrapper<Question> getQueryWrapper(QuestionQueryRequest questionQueryRequest) {
@@ -99,8 +102,6 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
         List<String> tags = questionQueryRequest.getTags();
         String answerBlog = questionQueryRequest.getAnswerBlog();
         Long userId = questionQueryRequest.getUserId();
-        long current = questionQueryRequest.getCurrent();
-        long pageSize = questionQueryRequest.getPageSize();
         String sortField = questionQueryRequest.getSortField();
         String sortOrder = questionQueryRequest.getSortOrder();
 
@@ -122,10 +123,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
     }
 
     /**
-     * 获取QuestionVO
-     * @param question
-     * @param request
-     * @return
+     * @Description: 获取题目视图对象
+     * @param question 题目pojo
+     * @param request http请求
+     * @Return: 题目视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:18 PM
      */
     @Override
     public QuestionVO getQuestionVO(Question question, HttpServletRequest request) {
@@ -142,10 +145,12 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question>
     }
 
     /**
-     * 获取分页查询的所有QuetionVO
-     * @param questionPage
-     * @param request
-     * @return
+     * @Description: 分页获取题目视图对象
+     * @param questionPage 题目分页
+     * @param request http请求
+     * @Return: 题目视图对象分页
+     * @Author: lions
+     * @Datetime: 12/28/2023 11:18 PM
      */
     @Override
     public Page<QuestionVO> getQuestionVOPage(Page<Question> questionPage, HttpServletRequest request) {

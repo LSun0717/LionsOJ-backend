@@ -10,8 +10,10 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 查询请求
- *
+ * @Classname: QuestionQueryRequest
+ * @Description: 查询请求封装
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:54 PM
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

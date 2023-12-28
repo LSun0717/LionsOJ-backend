@@ -13,8 +13,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 微信公众号路由
- *
+ * @Classname: WxMpMsgRouter
+ * @Description: 微信公众号相关路由
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:34 AM
  */
 @Configuration
 public class WxMpMsgRouter {

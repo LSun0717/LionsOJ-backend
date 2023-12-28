@@ -8,16 +8,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * MyBatis Plus 配置
+ * @Classname: MyBatisPlusConfig
+ * @Description: MyBatis Plus 配置
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:23 AM
  */
 @Configuration
 @MapperScan("com.gzu.lionsoj.mapper")
 public class MyBatisPlusConfig {
 
     /**
-     * 拦截器配置
-     *
-     * @return
+     * @Description: Mybatis-plus拦截器配置
+     * @Return: Mybatis-plus拦截器Bean
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:23 AM
      */
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {

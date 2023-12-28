@@ -8,6 +8,12 @@ import java.io.Serializable;
  * 答题提交请求
  *
  */
+/**
+ * @Classname: SubmissionAddRequest
+ * @Description: 答题提交请求封装
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:51 PM
+ */
 @Data
 public class SubmissionAddRequest implements Serializable {
 

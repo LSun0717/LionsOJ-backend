@@ -8,8 +8,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * 主类（项目启动入口）
- *
+ * @Classname: MainApplication
+ * @Description: 项目启动类
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:34 AM
  */
 // todo 如需开启 Redis，须移除 exclude 中的内容
 @SpringBootApplication(exclude = {RedisAutoConfiguration.class})

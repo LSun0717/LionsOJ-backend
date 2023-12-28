@@ -4,11 +4,11 @@ import com.gzu.lionsoj.model.entity.Submission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
-* @author 孙龙
-* @description 针对表【submission(题目提交表)】的数据库操作Mapper
-* @createDate 2023-12-27 01:49:17
-* @Entity com.gzu.lionsoj.model.entity.Submission
-*/
+ * @Classname: SubmissionMapper
+ * @Description: 题目提交DAO
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:38 PM
+ */
 public interface SubmissionMapper extends BaseMapper<Submission> {
 
 }

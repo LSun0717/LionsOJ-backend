@@ -18,7 +18,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
- * 权限校验AOP
+ * @Classname: AuthInterceptor
+ * @Description: 权限校验AOP切面
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:59 PM
  */
 @Aspect
 @Component
@@ -28,11 +31,12 @@ public class AuthInterceptor {
     private UserService userService;
 
     /**
-     * 执行拦截
-     *
-     * @param joinPoint
-     * @param authCheck
-     * @return
+     * @Description: 权限校验环绕通知
+     * @param joinPoint 连接点
+     * @param authCheck 自定义鉴权注解
+     * @Return: 通知处理结果
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:00 AM
      */
     @Around("@annotation(authCheck)")
     public Object doInterceptor(ProceedingJoinPoint joinPoint, AuthCheck authCheck) throws Throwable {

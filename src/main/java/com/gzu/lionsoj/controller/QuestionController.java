@@ -10,10 +10,7 @@ import com.gzu.lionsoj.common.ResultUtils;
 import com.gzu.lionsoj.constant.UserConstant;
 import com.gzu.lionsoj.exception.BusinessException;
 import com.gzu.lionsoj.exception.ThrowUtils;
-import com.gzu.lionsoj.model.dto.question.QuestionAddRequest;
-import com.gzu.lionsoj.model.dto.question.QuestionEditRequest;
-import com.gzu.lionsoj.model.dto.question.QuestionQueryRequest;
-import com.gzu.lionsoj.model.dto.question.QuestionUpdateRequest;
+import com.gzu.lionsoj.model.dto.question.*;
 import com.gzu.lionsoj.model.entity.Question;
 import com.gzu.lionsoj.model.entity.User;
 import com.gzu.lionsoj.model.vo.QuestionVO;
@@ -43,8 +40,6 @@ public class QuestionController {
 
     private final static Gson GSON = new Gson();
 
-    // region 增删改查
-
     /**
      * 创建
      *
@@ -62,6 +57,14 @@ public class QuestionController {
         List<String> tags = questionAddRequest.getTags();
         if (tags != null) {
             question.setTags(GSON.toJson(tags));
+        }
+        List<JudgeCase> judgeCase = questionAddRequest.getJudgeCase();
+        if (judgeCase != null) {
+            question.setJudgeCase(GSON.toJson(judgeCase));
+        }
+        List<JudgeConfig> judgeConfig = questionAddRequest.getJudgeConfig();
+        if (judgeConfig != null) {
+            question.setJudgeConfig(GSON.toJson(judgeConfig));
         }
         questionService.validQuestion(question, true);
         User loginUser = userService.getLoginUser(request);
@@ -116,6 +119,14 @@ public class QuestionController {
         List<String> tags = questionUpdateRequest.getTags();
         if (tags != null) {
             question.setTags(GSON.toJson(tags));
+        }
+        List<JudgeCase> judgeCase = questionUpdateRequest.getJudgeCase();
+        if (judgeCase != null) {
+            question.setJudgeCase(GSON.toJson(judgeCase));
+        }
+        List<JudgeConfig> judgeConfig = questionUpdateRequest.getJudgeConfig();
+        if (judgeConfig != null) {
+            question.setJudgeConfig(GSON.toJson(judgeConfig));
         }
         // 参数校验
         questionService.validQuestion(question, false);
@@ -205,6 +216,14 @@ public class QuestionController {
         List<String> tags = questionEditRequest.getTags();
         if (tags != null) {
             question.setTags(GSON.toJson(tags));
+        }
+        List<JudgeCase> judgeCase = questionEditRequest.getJudgeCase();
+        if (judgeCase != null) {
+            question.setJudgeCase(GSON.toJson(judgeCase));
+        }
+        List<JudgeConfig> judgeConfig = questionEditRequest.getJudgeConfig();
+        if (judgeConfig != null) {
+            question.setJudgeConfig(GSON.toJson(judgeConfig));
         }
         // 参数校验
         questionService.validQuestion(question, false);

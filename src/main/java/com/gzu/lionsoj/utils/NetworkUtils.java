@@ -4,11 +4,12 @@ import java.net.InetAddress;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 网络工具类
- *
-
+ * @Classname: NetworkUtils
+ * @Description: 网络工具类
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:29 AM
  */
-public class NetUtils {
+public class NetworkUtils {
 
     /**
      * 获取客户端 IP 地址

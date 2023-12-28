@@ -6,8 +6,10 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.ObjectUtils;
 
 /**
- * 用户角色枚举
- *
+ * @Classname: UserRoleEnum
+ * @Description: 用户角色枚举
+ * @Author: lions
+ * @Datetime: 12/28/2023 11:01 PM
  */
 public enum UserRoleEnum {
 
@@ -25,19 +27,21 @@ public enum UserRoleEnum {
     }
 
     /**
-     * 获取值列表
-     *
-     * @return
+     * @Description: 获取值列表
+     * @Return: 值列表
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:56 PM
      */
     public static List<String> getValues() {
         return Arrays.stream(values()).map(item -> item.value).collect(Collectors.toList());
     }
 
     /**
-     * 根据 value 获取枚举
-     *
-     * @param value
-     * @return
+     * @Description: 根据 value 获取枚举
+     * @param value 枚举值
+     * @Return: 用户角色枚举
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:58 PM
      */
     public static UserRoleEnum getEnumByValue(String value) {
         if (ObjectUtils.isEmpty(value)) {

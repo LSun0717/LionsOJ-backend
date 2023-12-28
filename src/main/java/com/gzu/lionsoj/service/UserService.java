@@ -12,109 +12,123 @@ import javax.servlet.http.HttpServletRequest;
 import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 
 /**
- * 用户服务
- *
-
+ * @Classname: UserService
+ * @Description: 用户服务
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:26 PM
  */
 public interface UserService extends IService<User> {
 
     /**
-     * 用户注册
-     *
+     * @Description: 用户注册
      * @param userAccount   用户账户
      * @param userPassword  用户密码
      * @param checkPassword 校验密码
-     * @return 新用户 id
+     * @Return: 新用户 id
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:26 PM
      */
     long userRegister(String userAccount, String userPassword, String checkPassword);
 
     /**
-     * 用户登录
-     *
-     * @param userAccount  用户账户
-     * @param userPassword 用户密码
-     * @param request
-     * @return 脱敏后的用户信息
+     * @Description: 用户登录
+     * @param userAccount   用户账户
+     * @param userPassword  用户密码
+     * @param request http请求
+     * @Return: 脱敏后的用户信息
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:27 PM
      */
     LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
     /**
-     * 用户登录（微信开放平台）
-     *
+     * @Description: 用户登录（微信开放平台）
      * @param wxOAuth2UserInfo 从微信获取的用户信息
-     * @param request
-     * @return 脱敏后的用户信息
+     * @param request http请求
+     * @Return: 登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:29 PM
      */
     LoginUserVO userLoginByMpOpen(WxOAuth2UserInfo wxOAuth2UserInfo, HttpServletRequest request);
 
     /**
-     * 获取当前登录用户
-     *
-     * @param request
-     * @return
+     * @Description: 获取当前登录用户
+     * @param request http请求
+     * @Return: 当前登录用户
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:30 PM
      */
     User getLoginUser(HttpServletRequest request);
 
     /**
-     * 获取当前登录用户（允许未登录）
-     *
-     * @param request
-     * @return
+     * @Description: 获取当前登录用户（允许未登录）
+     * @param request http请求
+     * @Return: 当前登录用户
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:31 PM
      */
     User getLoginUserPermitNull(HttpServletRequest request);
 
     /**
-     * 是否为管理员
-     *
-     * @param request
-     * @return
+     * @Description: 是否为管理员
+     * @param request http请求
+     * @Return: 判断结果
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:31 PM
      */
     boolean isAdmin(HttpServletRequest request);
 
     /**
-     * 是否为管理员
-     *
-     * @param user
-     * @return
+     * @Description: 是否为管理员
+     * @param user 用户对象
+     * @Return: 判断结果
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:32 PM
      */
     boolean isAdmin(User user);
 
     /**
-     * 用户注销
-     *
-     * @param request
-     * @return
+     * @Description: 用户注销
+     * @param request http请求
+     * @Return: 是否注销成功
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:32 PM
      */
     boolean userLogout(HttpServletRequest request);
 
     /**
-     * 获取脱敏的已登录用户信息
-     *
-     * @return
+     * @Description: 获取脱敏的已登录用户信息
+     * @param user 用户对象
+     * @Return: 已登录用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:33 PM
      */
     LoginUserVO getLoginUserVO(User user);
 
     /**
-     * 获取脱敏的用户信息
-     *
-     * @param user
-     * @return
+     * @Description: 获取脱敏的用户信息
+     * @param user 用户对象
+     * @Return: 用户视图对象
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:33 PM
      */
     UserVO getUserVO(User user);
 
     /**
-     * 获取脱敏的用户信息
-     *
-     * @param userList
-     * @return
+     * @Description: 批量获取脱敏的用户信息
+     * @param userList 用户列表
+     * @Return: 用户视图对象List
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:34 PM
      */
     List<UserVO> getUserVO(List<User> userList);
 
     /**
-     * 获取查询条件
-     *
-     * @param userQueryRequest
-     * @return
+     * @Description: 获取查询条件 QueryRequest
+     * @param userQueryRequest 请求封装
+     * @Return: 查询条件
+     * @Author: lions
+     * @Datetime: 12/28/2023 10:35 PM
      */
     QueryWrapper<User> getQueryWrapper(UserQueryRequest userQueryRequest);
 

@@ -6,9 +6,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 用户查询请求
- *
-
+ * @Classname: UserQueryRequest
+ * @Description: 用户查询请求封装
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:50 PM
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

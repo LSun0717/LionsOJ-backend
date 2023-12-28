@@ -7,9 +7,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
- * Spring 上下文获取工具
- *
-
+ * @Classname: SpringContextUtils
+ * @Description: Spring 上下文获取工具
+ * @Author: lions
+ * @Datetime: 12/29/2023 12:31 AM
  */
 @Component
 public class SpringContextUtils implements ApplicationContextAware {
@@ -22,33 +23,35 @@ public class SpringContextUtils implements ApplicationContextAware {
     }
 
     /**
-     * 通过名称获取 Bean
-     *
-     * @param beanName
-     * @return
+     * @Description: 通过名称获取 Bean
+     * @param beanName Bean名称
+     * @Return: Bean
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:31 AM
      */
     public static Object getBean(String beanName) {
         return applicationContext.getBean(beanName);
     }
 
+
     /**
-     * 通过 class 获取 Bean
-     *
-     * @param beanClass
-     * @param <T>
-     * @return
+     * @Description: 通过 class 获取 Bean
+     * @param beanClass bean的Class对象
+     * @Return: Bean
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:32 AM
      */
     public static <T> T getBean(Class<T> beanClass) {
         return applicationContext.getBean(beanClass);
     }
 
     /**
-     * 通过名称和类型获取 Bean
-     *
-     * @param beanName
-     * @param beanClass
-     * @param <T>
-     * @return
+     * @Description: 通过名称和类型获取 Bean
+     * @param beanName Bean名称
+     * @param beanClass Bean Class对象
+     * @Return: Bean
+     * @Author: lions
+     * @Datetime: 12/29/2023 12:32 AM
      */
     public static <T> T getBean(String beanName, Class<T> beanClass) {
         return applicationContext.getBean(beanName, beanClass);

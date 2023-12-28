@@ -10,9 +10,10 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 用户
- *
-
+ * @Classname: User
+ * @Description: 用户实体
+ * @Author: lions
+ * @Datetime: 12/28/2023 10:24 PM
  */
 @TableName(value = "user")
 @Data
