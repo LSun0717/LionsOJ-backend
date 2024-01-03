@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
  * @Datetime: 12/28/2023 11:00 PM
  */
 public enum SubmissionStatusEnum {
-
-    WAITING("等待", 0),
-    RUNNING("运行", 1),
+    // 0 - 待判题、1 - 判题中、2 - 成功、3 - 失败
+    WAITING("等待中", 0),
+    RUNNING("判题中", 1),
     SUCCEED("成功", 2),
     FAILED("失败", 3);
 

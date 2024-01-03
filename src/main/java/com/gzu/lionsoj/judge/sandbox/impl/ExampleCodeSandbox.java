@@ -33,8 +33,8 @@ public class ExampleCodeSandbox implements CodeSandbox {
         executeCodeResponse.setStatus(SubmissionStatusEnum.SUCCEED.getValue());
         JudgeInfo judgeInfo = new JudgeInfo();
         judgeInfo.setMessage(JudgeInfoMessageEnum.ACCEPTED.getValue());
-        judgeInfo.setMemory(100L);
-        judgeInfo.setTime(100L);
+        judgeInfo.setMemoryConsume(100L);
+        judgeInfo.setTimeConsume(100L);
         executeCodeResponse.setJudgeInfo(judgeInfo);
         return executeCodeResponse;
     }

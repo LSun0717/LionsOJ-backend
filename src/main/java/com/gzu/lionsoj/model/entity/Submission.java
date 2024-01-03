@@ -20,7 +20,7 @@ public class Submission implements Serializable {
     /**
      * id，雪花算法生成
      */
-    @TableId(type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**

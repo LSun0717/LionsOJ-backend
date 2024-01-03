@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gzu.lionsoj.common.ErrorCode;
 import com.gzu.lionsoj.constant.CommonConstant;
 import com.gzu.lionsoj.exception.BusinessException;
+import com.gzu.lionsoj.judge.JudgeService;
 import com.gzu.lionsoj.mapper.SubmissionMapper;
 import com.gzu.lionsoj.model.dto.submission.SubmissionAddRequest;
 import com.gzu.lionsoj.model.dto.submission.SubmissionQueryRequest;
@@ -21,10 +22,12 @@ import com.gzu.lionsoj.service.UserService;
 import com.gzu.lionsoj.utils.SqlUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 /**
@@ -41,6 +44,9 @@ public class SubmissionServiceImpl extends ServiceImpl<SubmissionMapper, Submiss
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private JudgeService judgeService;
 
     /**
      * @Description: 提交题目实现
@@ -79,7 +85,12 @@ public class SubmissionServiceImpl extends ServiceImpl<SubmissionMapper, Submiss
         if (!save) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "提交失败，数据插入失败");
         }
-        return submission.getId();
+        Long submissionId = submission.getId();
+        CompletableFuture.runAsync(() -> {
+            judgeService.doJudge(submissionId);
+        });
+//        judgeService.doJudge(submissionId);
+        return submissionId;
     }
 
     /**
