@@ -8,13 +8,23 @@ import java.util.stream.Collectors;
 
 /**
  * @Classname: JudgeInfoMessageEnum
- * @Description: TODO 编写运行结果枚举类，WA/OOM之类的
+ * @Description: 判题结果枚举类，WA/OOM之类的
  * @Author: lions
  * @Datetime: 12/28/2023 10:56 PM
  */
 public enum JudgeInfoMessageEnum {
 
-    WAITING("等待", "waiting");
+    ACCEPTED("成功", "Accepted"),
+    WRONG_ANSWER("答案错误", "Wrong Answer"),
+    COMPILE_ERROR("编译错误", "Compile Error"),
+    MEMORY_LIMIT_EXCEEDED("内存溢出", "Out Of Memory"),
+    TIME_LIMIT_EXCEEDED("超时", "Time Limit Exceeded"),
+    PRESENTATION_ERROR("展示错误", "Presentation Error"),
+    WAITING("等待中", "Waiting"),
+    OUTPUT_LIMIT_EXCEEDED("输出溢出", "Output Limit Exceeded"),
+    DANGEROUS_OPERATION("危险操作", "Dangerous Operation"),
+    RUNTIME_ERROR("运行错误", "Runtime Error"),
+    SYSTEM_ERROR("系统错误", "System Error");
 
     private final String text;
 
